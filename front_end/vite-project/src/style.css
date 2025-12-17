@@ -1,14 +1,20 @@
 :root {
   /* Color Palette - Premium Dark/Teal Theme */
-  --primary-color: #00bcd4; /* Cyan/Teal Pop */
+  --primary-color: #00bcd4;
+  /* Cyan/Teal Pop */
   --primary-hover: #00acc1;
-  --secondary-color: #ff4081; /* Pink/Red Accent */
-  --bg-color: #0f172a; /* Deep Blue/Slate Background */
-  --bg-card: #1e293b; /* Slightly lighter card bg */
-  --text-main: #f8fafc; /* White/Grey text */
-  --text-muted: #94a3b8; /* Muted text */
+  --secondary-color: #ff4081;
+  /* Pink/Red Accent */
+  --bg-color: #0f172a;
+  /* Deep Blue/Slate Background */
+  --bg-card: #1e293b;
+  /* Slightly lighter card bg */
+  --text-main: #f8fafc;
+  /* White/Grey text */
+  --text-muted: #94a3b8;
+  /* Muted text */
   --border-color: #334155;
-  
+
   /* Gradients */
   --gradient-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   --gradient-primary: linear-gradient(135deg, #00bcd4 0%, #2196f3 100%);
@@ -38,7 +44,8 @@
 
 body {
   font-family: var(--font-family);
-  background: var(--bg-color); /* Fallback */
+  background: var(--bg-color);
+  /* Fallback */
   background-image: var(--gradient-bg);
   color: var(--text-main);
   min-height: 100vh;
@@ -89,13 +96,25 @@ button {
   flex-direction: column;
 }
 
-.gap-sm { gap: var(--spacing-sm); }
-.gap-md { gap: var(--spacing-md); }
+.gap-sm {
+  gap: var(--spacing-sm);
+}
 
-.text-center { text-align: center; }
+.gap-md {
+  gap: var(--spacing-md);
+}
 
-.mt-lg { margin-top: var(--spacing-lg); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
+.text-center {
+  text-align: center;
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
 
 /* Components */
 .btn {
@@ -130,7 +149,9 @@ button {
 }
 
 /* Input Styles */
-input, select, textarea {
+input,
+select,
+textarea {
   display: block;
   width: 100%;
   padding: 0.75rem;
@@ -143,7 +164,9 @@ input, select, textarea {
   transition: border-color 0.2s;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--primary-color);
 }
@@ -160,10 +183,37 @@ input:focus, select:focus, textarea:focus {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Date/Time Picker Cards */
+.date-card:hover,
+.time-card:hover {
+  border-color: var(--primary-color) !important;
+  transform: translateY(-2px);
+}
+
+.date-option input:checked+.date-card,
+.time-option input:checked+.time-card {
+  border-color: var(--primary-color) !important;
+  background: rgba(0, 188, 212, 0.15) !important;
+}
+
+/* Service Card Hover */
+.service-card:hover {
+  border-color: var(--primary-color) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 188, 212, 0.3);
 }
