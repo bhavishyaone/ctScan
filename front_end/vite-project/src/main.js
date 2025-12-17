@@ -23,90 +23,202 @@ const navigate = (view) => {
 // 1. Home Page
 const renderHome = () => {
   return `
-    <nav class="flex justify-between items-center" style="padding: 1.5rem 2rem; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;">
-      <div class="logo" style="font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; color: var(--primary-color);">
-        Connect<span style="color: var(--text-main);">Remote</span>
-      </div>
-      <div class="flex items-center gap-md">
-        <a href="#" onclick="window.navigate('home')">Home</a>
-        <a href="#" onclick="window.navigate('signup')">Signup</a>
-        <button id="partner-btn" class="btn btn-outline" style="font-size: 0.875rem;">
-          ${state.partnered ? 'Partnered ✓' : 'Partner with us'}
-        </button>
+    <!-- Navigation -->
+    <nav style="padding: 1.5rem 3rem; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color);">
+      <div class="flex justify-between items-center" style="max-width: 1400px; margin: 0 auto;">
+        <div style="font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; letter-spacing: -0.02em;">
+          <span style="color: var(--accent-orange);">Connect</span><span style="color: var(--text-primary);">Remote</span>
+        </div>
+        <div class="flex items-center gap-lg">
+          <a href="#" onclick="window.navigate('home')" class="btn-ghost">Home</a>
+          <a href="#" onclick="window.navigate('about')" class="btn-ghost">About</a>
+          <a href="#" onclick="window.navigate('signup')" class="btn-ghost">Sign Up</a>
+          <button id="partner-btn" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">
+            ${state.partnered ? 'PARTNERED ✓' : 'PARTNER WITH US'}
+          </button>
+        </div>
       </div>
     </nav>
 
-    <main class="container text-center mt-lg animate-fade-in" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-      <h1 style="font-size: 4rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 800; background: linear-gradient(to right, #00bcd4, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        Bridge the Gap Between<br>Remote & Onsite
-      </h1>
-      <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem;">
-        Reimagine workplace coordination. We increase human connection and seamless collaboration for distributed teams.
-      </p>
-      
-      <div class="flex gap-md justify-center">
-        <button class="btn btn-primary" onclick="window.navigate('signup')">Get Started</button>
-        <button class="btn btn-outline" onclick="window.navigate('about')">Learn More</button>
+    <!-- Hero Section -->
+    <main style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 2rem 4rem;">
+      <div class="container animate-fade-in-up" style="max-width: 1000px; margin: 0 auto;">
+        <div class="text-center">
+          <span class="tag" style="margin-bottom: 2rem; display: inline-block;">FOR MODERN TEAMS</span>
+          
+          <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 8vw, 6rem); font-weight: 700; line-height: 1.05; margin-bottom: 2rem; letter-spacing: -0.03em;">
+            BRIDGE THE GAP<br>
+            <span class="gradient-text">BETWEEN REMOTE</span><br>
+            & ONSITE
+          </h1>
+          
+          <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; line-height: 1.7;">
+            Reimagine workplace coordination. We create human connection and seamless collaboration for distributed teams worldwide.
+          </p>
+          
+          <div class="flex gap-md justify-center" style="flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="window.navigate('signup')">
+              GET STARTED →
+            </button>
+            <button class="btn btn-outline" onclick="window.navigate('about')">
+              LEARN MORE
+            </button>
+          </div>
+        </div>
       </div>
     </main>
-    
-    <footer class="text-center" style="padding: 4rem 0; color: var(--text-muted); font-size: 0.875rem;">
-      <!-- Credits removed -->
-    </footer>
+
+    <!-- Stats Section -->
+    <section style="padding: 6rem 2rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="flex justify-center gap-xl" style="flex-wrap: wrap;">
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Companies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Employees Connected</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Satisfaction Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Global Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section style="padding: 8rem 2rem;">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 4rem;">
+          <span class="tag" style="margin-bottom: 1rem; display: inline-block;">WHY US</span>
+          <h2 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700;">BUILT FOR THE FUTURE OF WORK</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border-color);">
+          <div class="feature-item" style="background: var(--bg-primary);">
+            <div class="feature-icon">🌐</div>
+            <h3 style="margin-bottom: 0.5rem; font-family: var(--font-display);">Virtual Events</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">High-fidelity virtual team building sessions that feel authentic.</p>
+          </div>
+          <div class="feature-item" style="background: var(--bg-primary);">
+            <div class="feature-icon">🏢</div>
+            <h3 style="margin-bottom: 0.5rem; font-family: var(--font-display);">Onsite Coordination</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Coordinate in-person meetups at co-working spaces across India.</p>
+          </div>
+          <div class="feature-item" style="background: var(--bg-primary);">
+            <div class="feature-icon">🤝</div>
+            <h3 style="margin-bottom: 0.5rem; font-family: var(--font-display);">Human Connection</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Foster real relationships that transcend screens and distance.</p>
+          </div>
+          <div class="feature-item" style="background: var(--bg-primary);">
+            <div class="feature-icon">📊</div>
+            <h3 style="margin-bottom: 0.5rem; font-family: var(--font-display);">Analytics</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Measure engagement and team satisfaction with smart insights.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 8rem 2rem; background: var(--bg-secondary);">
+      <div class="container text-center">
+        <h2 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">
+          READY TO <span class="gradient-text">TRANSFORM</span> YOUR TEAM?
+        </h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+          Join 500+ companies already building stronger teams with ConnectRemote.
+        </p>
+        <button class="btn btn-primary" onclick="window.navigate('signup')" style="padding: 1.25rem 3rem;">
+          START FREE TRIAL →
+        </button>
+      </div>
+    </section>
   `
 }
 
 // 1.5. About / Learn More Page
 const renderAbout = () => {
   return `
-      <div class="container flex justify-center items-center" style="min-height: 100vh;">
-        <div class="card animate-fade-in" style="width: 100%; max-width: 800px;">
-          <h2 class="text-center" style="margin-bottom: 2rem; font-size: 2.5rem; color: var(--primary-color);">About Us</h2>
-          
-          <div class="text-center" style="margin-bottom: 2rem;">
-            <p style="font-size: 1.125rem; margin-bottom: 1rem;">
-              <strong>ConnectRemote</strong> is dedicated to solving the isolation crisis in distributed teams.
-            </p>
-            <p style="color: var(--text-muted); margin-bottom: 1rem;">
-              We believe that while work can happen anywhere, human connection requires intention. Our platform seamlessly bridges the physical and digital divide by coordinating onsite meetups and high-fidelity virtual bonding sessions.
-            </p>
-             <p style="color: var(--text-muted);">
-              Whether you are a fully remote startup or a hybrid enterprise, we help your employees feel seen, heard, and connected.
-            </p>
+    <div style="min-height: 100vh; padding: 8rem 2rem;">
+      <div class="container animate-fade-in" style="max-width: 900px; margin: 0 auto;">
+        
+        <div class="text-center" style="margin-bottom: 4rem;">
+          <span class="tag" style="margin-bottom: 1.5rem; display: inline-block;">OUR STORY</span>
+          <h1 style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem;">
+            ABOUT <span class="gradient-text">CONNECTREMOTE</span>
+          </h1>
+        </div>
+        
+        <div class="card" style="margin-bottom: 3rem;">
+          <p style="font-size: 1.25rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-primary);">
+            <strong style="color: var(--accent-orange);">ConnectRemote</strong> is dedicated to solving the isolation crisis in distributed teams.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+            We believe that while work can happen anywhere, human connection requires intention. Our platform seamlessly bridges the physical and digital divide by coordinating onsite meetups and high-fidelity virtual bonding sessions.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.8;">
+            Whether you are a fully remote startup or a hybrid enterprise, we help your employees feel seen, heard, and connected.
+          </p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-color); margin-bottom: 3rem;">
+          <div class="stat-item" style="background: var(--bg-primary);">
+            <div class="stat-number">2025</div>
+            <div class="stat-label">Founded</div>
           </div>
-  
-          <div class="flex justify-center gap-md">
-             <button class="btn btn-primary" onclick="window.navigate('signup')">Join the Revolution</button>
-             <button class="btn btn-outline" onclick="window.navigate('home')">Back to Home</button>
+          <div class="stat-item" style="background: var(--bg-primary);">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Cities</div>
+          </div>
+          <div class="stat-item" style="background: var(--bg-primary);">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Possibilities</div>
           </div>
         </div>
+        
+        <div class="flex justify-center gap-md">
+          <button class="btn btn-primary" onclick="window.navigate('signup')">JOIN THE REVOLUTION →</button>
+          <button class="btn btn-outline" onclick="window.navigate('home')">← BACK HOME</button>
+        </div>
       </div>
-    `
+    </div>
+  `
 }
 
 // 2. Signup Page
 const renderSignup = () => {
   return `
-    <div class="container flex justify-center items-center" style="min-height: 100vh;">
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
       <div class="card animate-fade-in" style="width: 100%; max-width: 480px;">
-        <h2 class="text-center" style="margin-bottom: 2rem; font-size: 2rem;">Create Your Account</h2>
+        <div class="text-center" style="margin-bottom: 2rem;">
+          <span class="tag" style="margin-bottom: 1rem; display: inline-block;">GET STARTED</span>
+          <h2 style="font-family: var(--font-display); font-size: 2rem;">CREATE ACCOUNT</h2>
+        </div>
+        
         <form id="signup-form">
-          <div>
-            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem;">Full Name</label>
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Full Name</label>
             <input type="text" name="name" placeholder="John Doe" required>
           </div>
-          <div>
-            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem;">Email Address</label>
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Email Address</label>
             <input type="email" name="email" placeholder="john@company.com" required>
           </div>
-          <div>
-            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem;">Password</label>
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Password</label>
             <input type="password" name="password" placeholder="••••••••" required>
           </div>
           
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Sign Up</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">SIGN UP →</button>
         </form>
-        <div class="text-center mt-lg">
+        
+        <div class="text-center" style="margin-top: 2rem;">
           <a href="#" onclick="window.navigate('home')" style="font-size: 0.875rem; color: var(--text-muted);">← Back to Home</a>
         </div>
       </div>
@@ -117,24 +229,29 @@ const renderSignup = () => {
 // 3. Location Selection
 const renderLocation = () => {
   return `
-    <div class="container flex justify-center items-center" style="min-height: 100vh;">
-      <div class="card animate-fade-in" style="width: 100%; max-width: 500px; text-center">
-        <h2 class="text-center" style="margin-bottom: 1rem;">Where are you located?</h2>
-        <p class="text-center" style="color: var(--text-muted); margin-bottom: 2rem;">
-          We need your location to connect you with the best onsite services.
-        </p>
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
+      <div class="card animate-fade-in" style="width: 100%; max-width: 500px;">
+        <div class="text-center" style="margin-bottom: 2rem;">
+          <span class="tag" style="margin-bottom: 1rem; display: inline-block;">STEP 2</span>
+          <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 0.5rem;">SELECT LOCATION</h2>
+          <p style="color: var(--text-secondary);">Choose your city for the best service experience</p>
+        </div>
         
         <form id="location-form">
-           <select name="location" required>
+          <select name="location" required>
             <option value="" disabled selected>Select your city...</option>
-            <option value="Pune">Pune</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Hyderabad">Hyderabad</option>
+            <option value="Pune">🏙️ Pune</option>
+            <option value="Mumbai">🌆 Mumbai</option>
+            <option value="Bangalore">🏛️ Bangalore</option>
+            <option value="Delhi">🏰 Delhi</option>
+            <option value="Hyderabad">🕌 Hyderabad</option>
           </select>
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Continue</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">CONTINUE →</button>
         </form>
+        
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="#" onclick="window.navigate('signup')" style="font-size: 0.875rem; color: var(--text-muted);">← Back</a>
+        </div>
       </div>
     </div>
   `
@@ -143,30 +260,43 @@ const renderLocation = () => {
 // 4. Booking (Online/Offline)
 const renderBooking = () => {
   return `
-    <div class="container flex justify-center items-center" style="min-height: 100vh;">
-      <div class="card animate-fade-in" style="width: 100%; max-width: 800px;">
-        <h2 class="text-center" style="margin-bottom: 3rem;">CHOOSE SERVICE TYPE</h2>
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
+      <div class="animate-fade-in" style="width: 100%; max-width: 900px;">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <span class="tag" style="margin-bottom: 1rem; display: inline-block;">STEP 3</span>
+          <h2 style="font-family: var(--font-display); font-size: 2.5rem;">CHOOSE SERVICE TYPE</h2>
+        </div>
         
-        <div class="flex gap-md" style="justify-content: stretch;">
+        <div class="flex gap-lg" style="justify-content: stretch;">
           <!-- Offline Option -->
-          <div class="card service-card" onclick="window.handleServiceSelect('offline')" 
-               style="flex: 1; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
-            <h3>Offline Service</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.9rem;">
-              Meet in-person at a coworking space or office hub.
+          <div class="service-card" onclick="window.handleServiceSelect('offline')" 
+               style="flex: 1; cursor: pointer; padding: 3rem 2rem; text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🏢</div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">OFFLINE</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              Meet in-person at premium co-working spaces across India.
             </p>
+            <div style="margin-top: 1.5rem;">
+              <span class="tag">RECOMMENDED</span>
+            </div>
           </div>
 
           <!-- Online Option -->
-          <div class="card service-card" onclick="window.handleServiceSelect('online')" 
-               style="flex: 1; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">🌐</div>
-            <h3>Online Service</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.9rem;">
-              Virtual team building & coordination session.
+          <div class="service-card" onclick="window.handleServiceSelect('online')" 
+               style="flex: 1; cursor: pointer; padding: 3rem 2rem; text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🌐</div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">ONLINE</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              Virtual team building & coordination sessions.
             </p>
+            <div style="margin-top: 1.5rem;">
+              <span class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">FLEXIBLE</span>
+            </div>
           </div>
+        </div>
+        
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="#" onclick="window.navigate('location')" style="font-size: 0.875rem; color: var(--text-muted);">← Back to Location</a>
         </div>
       </div>
     </div>
@@ -190,22 +320,25 @@ const renderBookAppointment = () => {
   const timeSlots = ['09:00 AM', '10:00 AM', '11:00 AM', '02:00 PM', '03:00 PM', '04:00 PM']
 
   return `
-    <div class="container" style="min-height: 100vh; padding: 3rem 1rem;">
+    <div style="min-height: 100vh; padding: 4rem 2rem;">
       <div class="animate-fade-in" style="max-width: 900px; margin: 0 auto;">
         
         <!-- Header -->
         <div class="text-center" style="margin-bottom: 3rem;">
-          <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; background: linear-gradient(to right, #00bcd4, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Book an Appointment</h1>
-          <p style="color: var(--text-muted); font-size: 1.1rem;">Schedule a call with our team to discuss your event</p>
+          <span class="tag" style="margin-bottom: 1rem; display: inline-block;">BOOK A CALL</span>
+          <h1 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 0.5rem;">
+            <span class="gradient-text">SCHEDULE</span> APPOINTMENT
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 1.1rem;">Schedule a call with our team to discuss your event</p>
         </div>
 
         <form id="appointment-form">
-          <div class="flex gap-md" style="flex-wrap: wrap;">
+          <div class="flex gap-lg" style="flex-wrap: wrap;">
             
             <!-- Left Column: Company Details -->
             <div class="card" style="flex: 1; min-width: 300px;">
-              <h3 style="margin-bottom: 1.5rem; color: var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
-                <span style="font-size: 1.5rem;">🏢</span> Company Details
+              <h3 style="margin-bottom: 1.5rem; color: var(--accent-orange); font-family: var(--font-display); display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 1.5rem;">🏢</span> COMPANY DETAILS
               </h3>
               
               <div style="margin-bottom: 1rem;">
@@ -244,8 +377,8 @@ const renderBookAppointment = () => {
 
             <!-- Right Column: Date & Time -->
             <div class="card" style="flex: 1; min-width: 300px;">
-              <h3 style="margin-bottom: 1.5rem; color: var(--primary-color); display: flex; align-items: center; gap: 0.5rem;">
-                <span style="font-size: 1.5rem;">📅</span> Select Date & Time
+              <h3 style="margin-bottom: 1.5rem; color: var(--accent-orange); font-family: var(--font-display); display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 1.5rem;">📅</span> SELECT DATE & TIME
               </h3>
               
               <!-- Date Picker -->
@@ -303,24 +436,30 @@ const renderBookAppointment = () => {
 const renderSuccess = () => {
   const appointmentInfo = state.appointment ? `
     <div class="card" style="margin-top: 2rem; text-align: left; max-width: 400px;">
-      <h4 style="margin-bottom: 1rem; color: var(--primary-color);">📋 Appointment Details</h4>
-      <p style="margin-bottom: 0.5rem;"><strong>Company:</strong> ${state.appointment.companyName}</p>
-      <p style="margin-bottom: 0.5rem;"><strong>Date:</strong> ${state.appointment.date}</p>
-      <p style="margin-bottom: 0.5rem;"><strong>Time:</strong> ${state.appointment.timeSlot}</p>
-      <p><strong>Event:</strong> ${state.appointment.eventType}</p>
+      <h4 style="margin-bottom: 1rem; color: var(--accent-orange); font-family: var(--font-display);">📋 APPOINTMENT DETAILS</h4>
+      <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><strong style="color: var(--text-primary);">Company:</strong> ${state.appointment.companyName}</p>
+      <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><strong style="color: var(--text-primary);">Date:</strong> ${state.appointment.date}</p>
+      <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><strong style="color: var(--text-primary);">Time:</strong> ${state.appointment.timeSlot}</p>
+      <p style="color: var(--text-secondary);"><strong style="color: var(--text-primary);">Event:</strong> ${state.appointment.eventType}</p>
     </div>
   ` : ''
 
   return `
-    <div class="container flex justify-center items-center flex-col" style="min-height: 100vh; text-align: center;">
-      <div class="animate-fade-in">
-        <h1 style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">All Set! 🎉</h1>
-        <p style="font-size: 1.25rem; color: var(--text-main);">
-          You have booked an <strong>${state.serviceType}</strong> service in <strong>${state.location}</strong>.
+    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
+      <div class="animate-fade-in text-center">
+        <div style="font-size: 5rem; margin-bottom: 1.5rem;">🎉</div>
+        <h1 style="font-family: var(--font-display); font-size: 3rem; margin-bottom: 1rem;">
+          <span class="gradient-text">ALL SET!</span>
+        </h1>
+        <p style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+          You have booked an <strong style="color: var(--accent-orange);">${state.serviceType?.toUpperCase()}</strong> service
         </p>
-        <p style="margin-top: 1rem; color: var(--text-muted);">We will be in touch shortly.</p>
+        <p style="font-size: 1.1rem; color: var(--text-secondary);">
+          in <strong>${state.location}</strong>
+        </p>
+        <p style="margin-top: 1.5rem; color: var(--text-muted);">We will be in touch shortly.</p>
         ${appointmentInfo}
-        <button class="btn btn-outline mt-lg" onclick="window.navigate('home')">Back to Home</button>
+        <button class="btn btn-primary" style="margin-top: 2rem;" onclick="window.navigate('home')">← BACK TO HOME</button>
       </div>
     </div>
   `
